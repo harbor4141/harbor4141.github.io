@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>啊啊啊轻点艹视频-短视频内容导航与观看指南</title>
+<meta name="description" content="啊啊啊轻点艹视频是一个短视频内容导航与观看指南，整理热门短剧、搞笑整活、生活记录与剪辑技巧，提供播放平台对照、更新日历与常见问题解答，帮助观众快速找到想看的视频类型。">
+<meta name="keywords" content="啊啊啊轻点艹视频">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23151827'/%3E%3Cpath d='M24 20l22 12-22 12z' fill='%23ff5c6c'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#151827;
+  --ink-2:#3c4058;
+  --muted:#6b7086;
+  --paper:#f6f5f2;
+  --card:#ffffff;
+  --line:#e3e1db;
+  --brand:#e8404f;
+  --brand-deep:#b31f31;
+  --accent:#0e7d74;
+  --accent-soft:#e2f2ef;
+  --gold:#c98a14;
+  --gold-soft:#fbf0da;
+  --radius:14px;
+  --radius-s:8px;
+  --shadow:0 1px 2px rgba(21,24,39,.06),0 8px 24px rgba(21,24,39,.06);
+  --shadow-lift:0 2px 4px rgba(21,24,39,.08),0 12px 28px rgba(21,24,39,.10);
+  --sp-1:6px; --sp-2:12px; --sp-3:18px; --sp-4:26px; --sp-5:38px; --sp-6:56px;
+  --sticky-h:104px;
+  --font: "PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--sticky-h) + 12px);}
+body{
+  margin:0;font-family:var(--font);color:var(--ink);background:var(--paper);
+  line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:var(--brand-deep);text-decoration:none;}
+a:hover{text-decoration:underline;}
+h1,h2,h3,h4{line-height:1.35;margin:0;font-weight:700;}
+p{margin:0 0 var(--sp-2);}
+ul,ol{margin:0 0 var(--sp-2);padding-left:1.3em;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px;}
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;z-index:200;}
+.skip:focus{left:12px;top:12px;}
+
+/* ===== sticky stack ===== */
+.sticky-stack{position:sticky;top:0;z-index:90;}
+.announce{
+  background:linear-gradient(90deg,#151827,#232641 60%,#2c2140);
+  color:#f2f1ee;font-size:13.5px;padding:8px 16px;display:flex;gap:10px;
+  align-items:center;justify-content:center;flex-wrap:wrap;text-align:center;
+}
+.announce b{color:#ffb3ba;font-weight:700;}
+.announce .dot{color:#7b7f9c;}
+.announce a{color:#9fe0d6;}
+
+.header{
+  background:rgba(255,255,255,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:1220px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:.2px;}
+.brand svg{flex:0 0 auto;}
+.brand span{color:var(--ink);}
+.nav{display:flex;gap:4px;flex-wrap:wrap;flex:1;}
+.nav a{
+  padding:7px 11px;border-radius:999px;font-size:14px;color:var(--ink-2);white-space:nowrap;
+}
+.nav a:hover{background:#f0efec;text-decoration:none;color:var(--ink);}
+.header-actions{display:flex;align-items:center;gap:10px;}
+.searchbox{display:flex;align-items:center;gap:0;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff;}
+.searchbox input{
+  border:0;padding:8px 12px;font:inherit;font-size:14px;width:176px;outline:none;background:transparent;
+}
+.searchbox button{
+  border:0;background:var(--ink);color:#fff;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer;
+}
+.searchbox button:hover{background:var(--brand-deep);}
+.menu-btn{
+  display:none;border:1px solid var(--line);background:#fff;border-radius:10px;
+  padding:8px 12px;font:inherit;font-size:14px;cursor:pointer;align-items:center;gap:6px;
+}
+.menu-btn svg{display:block;}
+.search-feedback{
+  max-width:1220px;margin:0 auto;padding:0 20px;font-size:13.5px;color:var(--muted);
+}
+.search-feedback:not(:empty){padding-bottom:8px;}
+
+/* ===== hero ===== */
+.hero{
+  background:
+    radial-gradient(1200px 420px at 82% -10%,rgba(232,64,79,.16),transparent 70%),
+    radial-gradient(900px 360px at 8% 8%,rgba(14,125,116,.14),transparent 68%),
+    #fbfaf8;
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{
+  max-width:1220px;margin:0 auto;padding:var(--sp-6) 20px var(--sp-5);
+  display:grid;grid-template-columns:1.15fr .85fr;gap:var(--sp-5);align-items:center;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);color:#0a5f59;
+  border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600;margin-bottom:16px;
+}
+.hero h1{font-size:clamp(30px,4.4vw,46px);letter-spacing:-.5px;margin-bottom:14px;}
+.hero h1 em{font-style:normal;color:var(--brand-deep);}
+.hero-desc{font-size:16.5px;color:var(--ink-2);max-width:36em;margin-bottom:22px;}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;
+  font-size:15px;font-weight:600;transition:transform .18s ease,box-shadow .18s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px);}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 6px 16px rgba(232,64,79,.28);}
+.btn-primary:hover{background:var(--brand-deep);}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line);}
+.hero-stats{display:flex;gap:26px;flex-wrap:wrap;}
+.hero-stats div{font-size:13px;color:var(--muted);}
+.hero-stats strong{display:block;font-size:22px;color:var(--ink);font-weight:800;letter-spacing:-.3px;}
+.hero-visual{position:relative;min-height:290px;}
+.hero-visual svg{width:100%;height:auto;filter:drop-shadow(0 14px 30px rgba(21,24,39,.10));}
+.float-chip{
+  position:absolute;background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:8px 12px;font-size:12.5px;box-shadow:var(--shadow);color:var(--ink-2);
+}
+.chip-a{top:6%;left:-2%;}
+.chip-b{bottom:12%;right:0;}
+
+/* ===== layout ===== */
+.layout{
+  max-width:1220px;margin:0 auto;padding:var(--sp-5) 20px var(--sp-6);
+  display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:var(--sp-5);align-items:start;
+}
+.main-col{min-width:0;}
+.side-col{min-width:0;display:flex;flex-direction:column;gap:var(--sp-4);}
+section.block{margin-bottom:var(--sp-6);scroll-margin-top:calc(var(--sticky-h) + 14px);}
+.block-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:var(--sp-3);}
+.block-head h2{font-size:22px;letter-spacing:-.2px;}
+.block-head .sub{font-size:13.5px;color:var(--muted);}
+.eyebrow{font-size:12.5px;font-weight:700;color:var(--brand-deep);letter-spacing:.12em;text-transform:uppercase;}
+
+/* overview */
+.overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-3);}
+.ov-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px;box-shadow:var(--shadow);
+}
+.ov-card h3{font-size:15.5px;margin-bottom:6px;}
+.ov-card p{font-size:14px;color:var(--ink-2);margin:0;}
+.ov-card .num{font-size:12px;color:var(--brand-deep);font-weight:700;letter-spacing:.08em;}
+
+/* featured */
+.feature-lead{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:0;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);margin-bottom:var(--sp-3);
+}
+.feature-lead .txt{padding:24px;}
+.feature-lead h3{font-size:20px;margin-bottom:8px;}
+.feature-lead p{font-size:14.5px;color:var(--ink-2);}
+.feature-lead img{width:100%;height:100%;object-fit:cover;min-height:220px;}
+.meta-line{font-size:12.5px;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;}
+.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-3);}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease;display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift);}
+.card img{width:100%;height:150px;object-fit:cover;}
+.card .body{padding:14px 16px 16px;}
+.card h3{font-size:16px;margin-bottom:6px;}
+.card p{font-size:13.8px;color:var(--ink-2);margin:0 0 8px;}
+.tag{
+  display:inline-block;font-size:12px;padding:2px 9px;border-radius:999px;background:#f1efeb;color:var(--ink-2);margin:2px 4px 2px 0;
+}
+.tag.hot{background:#fde8ea;color:var(--brand-deep);}
+.tag.cool{background:var(--accent-soft);color:#0a5f59;}
+.tag.gold{background:var(--gold-soft);color:#8a5c07;}
+
+/* latest list */
+.latest-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--line);}
+.latest-list li{
+  display:grid;grid-template-columns:78px minmax(0,1fr) auto;gap:14px;align-items:center;
+  padding:13px 4px;border-bottom:1px solid var(--line);font-size:14.5px;
+}
+.latest-list time{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.latest-list .li-title{color:var(--ink);}
+.latest-list .li-title b{font-weight:700;}
+.latest-list .src{font-size:12px;color:var(--muted);}
+
+/* categories */
+.cat-index{display:flex;flex-wrap:wrap;gap:10px;}
+.cat-index a{
+  display:flex;flex-direction:column;gap:1px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--radius-s);padding:10px 15px;min-width:126px;box-shadow:var(--shadow);color:var(--ink);
+}
+.cat-index a:hover{text-decoration:none;border-color:#c9c6be;transform:translateY(-2px);}
+.cat-index b{font-size:14.5px;font-weight:700;}
+.cat-index span{font-size:12px;color:var(--muted);}
+
+/* deep analysis */
+.analysis{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(18px,3vw,32px);box-shadow:var(--shadow);}
+.analysis > p{font-size:15.5px;color:var(--ink-2);}
+.analysis h3{font-size:17.5px;margin:26px 0 8px;padding-left:12px;border-left:4px solid var(--brand);}
+.analysis h3:first-of-type{margin-top:18px;}
+.claim{
+  background:var(--gold-soft);border:1px solid #eed9a8;border-radius:var(--radius-s);
+  padding:14px 16px;margin:12px 0 16px;font-size:14.5px;
+}
+.claim b{color:#7a4f04;}
+table.cmp{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0 18px;}
+table.cmp th,table.cmp td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top;}
+table.cmp th{background:#f4f2ee;font-weight:700;}
+table.cmp caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--muted);padding-bottom:6px;}
+.timeline{list-style:none;padding:0;margin:12px 0 4px;border-left:2px solid var(--line);}
+.timeline li{position:relative;padding:0 0 16px 20px;font-size:14.5px;}
+.timeline li::before{content:"";position:absolute;left:-6px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--brand);}
+.timeline time{display:block;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.factnote{font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;margin-top:16px;}
+
+/* experience steps */
+.steps{counter-reset:step;list-style:none;padding:0;margin:0;display:grid;gap:var(--sp-2);}
+.steps li{
+  counter-increment:step;background:#fff;border:1px solid var(--line);border-radius:var(--radius-s);
+  padding:14px 16px 14px 56px;position:relative;font-size:14.5px;box-shadow:var(--shadow);
+}
+.steps li::before{
+  content:counter(step);position:absolute;left:14px;top:14px;width:28px;height:28px;border-radius:50%;
+  background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:700;
+}
+.steps li b{display:block;font-size:15px;margin-bottom:2px;}
+
+/* compare panel */
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;}
+.versus > div{padding:18px;}
+.versus > div:first-child{background:#fcfaf6;border-right:1px solid var(--line);}
+.versus h3{font-size:15.5px;margin-bottom:8px;}
+.versus ul{font-size:14px;color:var(--ink-2);padding-left:1.1em;margin:0;}
+.versus li{margin-bottom:6px;}
+
+/* quotes */
+.quote-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-3);}
+.quote{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;
+  font-size:14.3px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;
+}
+.quote p{margin:0;color:var(--ink-2);}
+.quote .who{font-size:12.5px;color:var(--muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;}
+.rating{color:var(--gold);font-variant-numeric:tabular-nums;letter-spacing:1px;}
+
+/* faq */
+details.faq{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-s);padding:0;margin-bottom:10px;
+  box-shadow:var(--shadow);overflow:hidden;
+}
+details.faq summary{
+  cursor:pointer;padding:14px 42px 14px 16px;font-size:15px;font-weight:600;list-style:none;position:relative;
+}
+details.faq summary::-webkit-details-marker{display:none;}
+details.faq summary::after{
+  content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--brand-deep);line-height:1;
+}
+details.faq[open] summary::after{content:"–";}
+details.faq .ans{padding:0 16px 16px;font-size:14.3px;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:12px;}
+
+/* news */
+.news-list{list-style:none;padding:0;margin:0;display:grid;gap:10px;}
+.news-list li{
+  background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--radius-s);
+  padding:13px 16px;font-size:14.3px;
+}
+.news-list b{display:block;font-size:15px;margin-bottom:3px;}
+.news-list .src{font-size:12.5px;color:var(--muted);}
+
+/* recommend tags */
+.reco{display:flex;flex-wrap:wrap;gap:9px;}
+.reco a{
+  background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:13.5px;
+  color:var(--ink-2);box-shadow:var(--shadow);
+}
+.reco a:hover{border-color:var(--brand);color:var(--brand-deep);text-decoration:none;}
+
+/* ranking */
+.rank{list-style:none;padding:0;margin:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.rank li{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-size:14.3px;}
+.rank li:last-child{border-bottom:0;}
+.rank .rk{font-weight:800;color:var(--brand-deep);font-variant-numeric:tabular-nums;}
+.rank .score{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;}
+
+/* sidebar */
+.side-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);}
+.side-card h2{font-size:15.5px;margin-bottom:10px;}
+.side-nav{list-style:none;padding:0;margin:0;font-size:14px;}
+.side-nav a{display:block;padding:6px 10px;border-radius:8px;color:var(--ink-2);border-left:3px solid transparent;}
+.side-nav a:hover{background:#f5f3ef;text-decoration:none;}
+.side-nav a.active{background:#fdecee;color:var(--brand-deep);border-left-color:var(--brand);font-weight:600;}
+.side-card .fine{font-size:12.5px;color:var(--muted);}
+.side-card + .side-card{margin-top:0;}
+.mini-list{list-style:none;padding:0;margin:0;font-size:13.8px;}
+.mini-list li{padding:7px 0;border-bottom:1px dashed var(--line);color:var(--ink-2);}
+.mini-list li:last-child{border-bottom:0;}
+.mini-list b{font-weight:600;color:var(--ink);}
+
+/* footer */
+.footer{background:#151827;color:#c7c9d4;padding:var(--sp-6) 20px var(--sp-4);font-size:14px;}
+.footer-inner{max-width:1220px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:1.3fr repeat(3,1fr);gap:var(--sp-4);}
+.footer h4{color:#fff;font-size:14px;margin-bottom:10px;letter-spacing:.04em;}
+.footer .fbrand{display:flex;align-items:center;gap:10px;font-weight:800;color:#fff;font-size:17px;margin-bottom:10px;}
+.footer p{color:#9a9db0;font-size:13.5px;}
+.footer ul{list-style:none;padding:0;margin:0;font-size:13.5px;}
+.footer li{margin-bottom:7px;}
+.footer a{color:#c7c9d4;}
+.footer a:hover{color:#fff;}
+.footer-bottom{border-top:1px solid #2a2d42;margin-top:var(--sp-5);padding-top:16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12.5px;color:#81849a;}
+
+/* back to top */
+.to-top{
+  position:fixed;right:18px;bottom:20px;z-index:80;background:var(--ink);color:#fff;border:0;
+  width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:18px;box-shadow:var(--shadow-lift);
+  display:none;align-items:center;justify-content:center;
+}
+.to-top.show{display:flex;}
+.to-top:hover{background:var(--brand-deep);}
+
+/* responsive */
+@media (max-width:1024px){
+  .layout{grid-template-columns:minmax(0,1fr) 268px;}
+  .hero-inner{grid-template-columns:1fr;padding-top:var(--sp-5);}
+  .hero-visual{order:-1;max-width:460px;}
+}
+@media (max-width:860px){
+  .layout{grid-template-columns:minmax(0,1fr);}
+  .side-col{order:2;}
+  .overview-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .feature-lead{grid-template-columns:1fr;}
+  .feature-lead img{min-height:180px;max-height:230px;}
+}
+@media (max-width:720px){
+  .nav{display:none;}
+  .nav.open{display:flex;flex-direction:column;width:100%;padding-bottom:10px;}
+  .nav.open a{padding:9px 12px;}
+  .menu-btn{display:inline-flex;}
+  .searchbox input{width:120px;}
+  .card-grid,.quote-grid,.versus{grid-template-columns:minmax(0,1fr);}
+  .versus > div:first-child{border-right:0;border-bottom:1px solid var(--line);}
+  .latest-list li{grid-template-columns:64px minmax(0,1fr);}
+  .latest-list .src{grid-column:2;}
+  .hero-stats{gap:18px;}
+}
+@media (max-width:420px){
+  .overview-grid{grid-template-columns:1fr;}
+  .header-inner{gap:10px;}
+  .searchbox input{width:96px;}
+  .hero-stats strong{font-size:19px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .to-top{right:12px;bottom:14px;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{transition:none!important;animation:none!important;}
+  .card:hover,.btn:hover,.cat-index a:hover{transform:none;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<div class="sticky-stack">
+  <div class="announce" role="region" aria-label="站内公告">
+    <span><b>11月7日</b> 更新：短剧专区新增《合租第七天》上下集，搞笑整活区上线「年会反向操作」合集</span>
+    <span class="dot">·</span>
+    <span>本周共收录 46 条可跳转播放页</span>
+    <span class="dot">·</span>
+    <a href="/#latest">查看更新日历</a>
+  </div>
+
+  <header class="header">
+    <div class="header-inner">
+      <div class="brand">
+        <svg width="34" height="34" viewBox="0 0 64 64" role="img" aria-label="啊啊啊轻点艹视频 图形标志">
+          <rect width="64" height="64" rx="14" fill="#151827"/>
+          <path d="M23 19l24 13-24 13z" fill="#ff5c6c"/>
+          <circle cx="50" cy="16" r="5" fill="#0e7d74"/>
+          <path d="M13 46h10" stroke="#f6f5f2" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span>啊啊啊轻点艹视频</span>
+      </div>
+      <nav class="nav" id="primaryNav" aria-label="主题导航">
+        <a href="/#overview">短视频类型</a>
+        <a href="/#featured">本周精选</a>
+        <a href="/#latest">更新日历</a>
+        <a href="/#channels">频道总览</a>
+        <a href="/#analysis">深度解析</a>
+        <a href="/#guide">观看指南</a>
+        <a href="/#faq">常见问题</a>
+        <a href="/#news">行业资讯</a>
+      </nav>
+      <div class="header-actions">
+        <form class="searchbox" role="search" id="searchForm" aria-label="站内搜索">
+          <label for="q" class="skip">搜索内容</label>
+          <input id="q" name="q" type="search" placeholder="搜短剧 / 整活 / 剪辑" autocomplete="off">
+          <button type="submit">查找</button>
+        </form>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="primaryNav">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="#151827" stroke-width="1.8" stroke-linecap="round"/></svg>
+          菜单
+        </button>
+      </div>
+    </div>
+    <div class="search-feedback" id="searchFeedback" role="status" aria-live="polite"></div>
+  </header>
+</div>
+
+<main id="main">
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-tag">短视频内容导航 · 11 月第 2 周版</span>
+        <h1 id="heroTitle">啊啊啊轻点艹视频</h1>
+        <p class="hero-desc">把短剧、家常记录、搞笑整活与手机剪辑技巧放进同一张观看地图。每条收录写清平台、时长、更新节奏和适合的观看场景，试着让「今晚看什么」少花十分钟。</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="/#featured">看本周精选</a>
+          <a class="btn btn-ghost" href="/#channels">按频道找</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>46</strong>条本周可跳转</div>
+          <div><strong>9</strong>个内容频道</div>
+          <div><strong>11/07</strong>最近整块更新</div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 460 320" role="img">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffd9dd"/><stop offset="1" stop-color="#ffeef0"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#d6f0ec"/><stop offset="1" stop-color="#effaf8"/>
+            </linearGradient>
+          </defs>
+          <rect x="120" y="24" width="270" height="160" rx="16" fill="url(#g1)" stroke="#f0b7be"/>
+          <rect x="146" y="48" width="218" height="112" rx="10" fill="#ffffff" opacity=".65"/>
+          <path d="M232 82l44 24-44 24z" fill="#e8404f"/>
+          <rect x="40" y="150" width="200" height="126" rx="14" fill="url(#g2)" stroke="#9fd3cc"/>
+          <rect x="58" y="168" width="164" height="90" rx="8" fill="#ffffff" opacity=".7"/>
+          <rect x="74" y="184" width="88" height="9" rx="4.5" fill="#0e7d74" opacity=".55"/>
+          <rect x="74" y="202" width="130" height="9" rx="4.5" fill="#0e7d74" opacity=".35"/>
+          <rect x="74" y="220" width="108" height="9" rx="4.5" fill="#0e7d74" opacity=".28"/>
+          <circle cx="336" cy="236" r="34" fill="#151827"/>
+          <path d="M326 222l22 14-22 14z" fill="#ff9aa3"/>
+          <rect x="284" y="288" width="108" height="10" rx="5" fill="#e3e1db"/>
+        </svg>
+        <span class="float-chip chip-a">短剧 · 3–8 分钟/集</span>
+        <span class="float-chip chip-b">手机剪辑 · 竖屏优先</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+    <div class="main-col">
+
+      <section class="block" id="overview" aria-labelledby="ovTitle">
+        <div class="block-head">
+          <span class="eyebrow">领域概览</span>
+          <h2 id="ovTitle">短视频内容分成哪几类</h2>
+          <span class="sub">按体裁与观看场景划分，不是按平台划分</span>
+        </div>
+        <div class="overview-grid">
+          <div class="ov-card">
+            <span class="num">01</span>
+            <h3>竖屏短剧</h3>
+            <p>单集 90 秒到 8 分钟，常见 24–80 集。观看主力在通勤与睡前，剧情钩子通常放在第 15 秒与第 3 集结尾。</p>
+          </div>
+          <div class="ov-card">
+            <span class="num">02</span>
+            <h3>搞笑整活</h3>
+            <p>情景反转、AI 换脸、年会翻车复盘。单条 30–90 秒居多，周末晚间发布量比工作日高约四成。</p>
+          </div>
+          <div class="ov-card">
+            <span class="num">03</span>
+            <h3>生活记录</h3>
+            <p>一人食、租房改造、宠物日常。时长跨度大，5 分钟以内的 vlog 收藏率明显高于 15 分钟长片。</p>
+          </div>
+          <div class="ov-card">
+            <span class="num">04</span>
+            <h3>知识口播</h3>
+            <p>三分钟讲清一个概念，靠信息密度取胜。字幕完整度与镜头切换频率直接决定完播。</p>
+          </div>
+          <div class="ov-card">
+            <span class="num">05</span>
+            <h3>影视混剪</h3>
+            <p>踩点剪辑、台词向、角色混剪。版权边界最需要留意的一类，二创比例与片段时长是常见判断口径。</p>
+          </div>
+          <div class="ov-card">
+            <span class="num">06</span>
+            <h3>剪辑教程</h3>
+            <p>转场、调色、卡点、字幕动画。以「跟着做一遍」为标准，工具覆盖剪映、CapCut 与达芬奇移动端。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="featured" aria-labelledby="featTitle">
+        <div class="block-head">
+          <span class="eyebrow">精选内容推荐</span>
+          <h2 id="featTitle">本周值得点开的六条</h2>
+          <span class="sub">收录标准：可完整播放、有明确作者、更新在 7 天内</span>
+        </div>
+
+        <article class="feature-lead">
+          <div class="txt">
+            <h3>《合租第七天》：竖屏短剧里少见的慢节奏开场</h3>
+            <p>全 32 集，单集 4 分钟。前两集几乎没有冲突，第三集末尾才抛出钥匙串的伏笔。导演在 11 月 3 日的账号动态里提到，前两集是按「先让人物站住」的思路剪的，因此留存曲线明显比同类平缓。</p>
+            <div class="meta-line"><span>更新至 11 月 7 日 · 上下集已齐</span><span>竖屏 / 32 集</span><span>标签：合租日常、慢热</span></div>
+          </div>
+          <img src="https://picsum.photos/seed/hezhu7/640/420" width="640" height="420" loading="lazy" alt="短剧《合租第七天》客厅场景的竖屏画面截图">
+        </article>
+
+        <div class="card-grid">
+          <article class="card">
+            <img src="https://picsum.photos/seed/nianhui2026/520/300" width="520" height="300" loading="lazy" alt="年会舞台上同事表演节目的现场照片">
+            <div class="body">
+              <h3>年会反向操作合集</h3>
+              <p>12 条整活短片的拼接版，总长 9 分 40 秒。第 7 条「领导抽奖抽到自己」的现场收音保留了原声，评论区讨论最多的是该不该剪掉。</p>
+              <span class="tag hot">搞笑整活</span><span class="tag">合集</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/jianji38/520/300" width="520" height="300" loading="lazy" alt="手机剪辑界面中时间线与字幕轨道的特写">
+            <div class="body">
+              <h3>手机剪辑：38 秒讲清卡点转场</h3>
+              <p>用剪映 9.8 版演示，音轨标记点与画面切点对齐差 2 帧以内算合格。教程给出三个常见错位案例，其中一个来自作者自己的旧作。</p>
+              <span class="tag cool">剪辑教程</span><span class="tag">竖屏</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/yirenshi/520/300" width="520" height="300" loading="lazy" alt="出租屋内一人食餐桌摆盘的俯拍照片">
+            <div class="body">
+              <h3>一人食第 24 期：15 平米的厨房动线</h3>
+              <p>5 分 12 秒的生活记录，镜头固定在灶台左上角。作者把备菜、下锅、收尾拆成三个镜头段落，配速偏慢，适合边做饭边放。</p>
+              <span class="tag">生活记录</span><span class="tag">收藏率高</span>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://picsum.photos/seed/hunjian11/520/300" width="520" height="300" loading="lazy" alt="影视混剪视频中的夜景街道与霓虹灯画面">
+            <div class="body">
+              <h3>夜戏混剪：三分钟霓虹色调练习</h3>
+              <p>选取 11 部影片的夜景片段，逐段标注了色温与饱和度参数。作者在简介里注明片段均未超过 12 秒，属二创常见时长口径。</p>
+              <span class="tag gold">影视混剪</span><span class="tag">调色</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="block" id="latest" aria-labelledby="latestTitle">
+        <div class="block-head">
+          <span class="eyebrow">最新更新</span>
+          <h2 id="latestTitle">11 月 5 日至 11 月 8 日收录动态</h2>
+          <span class="sub">时间以作者首次发布为准，转存不计</span>
+        </div>
+        <ul class="latest-list">
+          <li><time datetime="2026-11-08">今天 09:20</time><span class="li-title"><b>《合租第七天》</b> 补更第 31–32 集，全剧杀青</span><span class="src">作者主页</span></li>
+          <li><time datetime="2026-11-07">11-07 20:15</time><span class="li-title">「年会反向操作」合集第 2 版上线，替换了第 4 条音轨</span><span class="src">合集页</span></li>
+          <li><time datetime="2026-11-07">11-07 14:02</time><span class="li-title"><b>手机剪辑卡点转场</b> 教程补充了帧对齐示意图</span><span class="src">教程频道</span></li>
+          <li><time datetime="2026-11-06">11-06 21:40</time><span class="li-title">一人食第 25 期预告，拍摄机位从灶台改到冰箱门口</span><span class="src">作者动态</span></li>
+          <li><time datetime="2026-11-05">11-05 11:08</time><span class="li-title">夜戏混剪新增调色参数表，附 11 部影片片段时长清单</span><span class="src">简介区</span></li>
+        </ul>
+      </section>
+
+      <section class="block" id="channels" aria-labelledby="chTitle">
+        <div class="block-head">
+          <span class="eyebrow">分类入口</span>
+          <h2 id="chTitle">按想看的类型直接进</h2>
+          <span class="sub">9 个频道，括号内为本周收录条数</span>
+        </div>
+        <div class="cat-index">
+          <a href="/#featured"><b>竖屏短剧</b><span>合集与单集 · 12 条</span></a>
+          <a href="/#featured"><b>搞笑整活</b><span>反转与翻车 · 8 条</span></a>
+          <a href="/#featured"><b>生活记录</b><span>一人食与租房 · 7 条</span></a>
+          <a href="/#featured"><b>手机剪辑教程</b><span>转场与字幕 · 6 条</span></a>
+          <a href="/#featured"><b>影视混剪</b><span>踩点与台词向 · 4 条</span></a>
+          <a href="/#featured"><b>知识口播</b><span>三分钟概念 · 3 条</span></a>
+          <a href="/#guide"><b>观看设备与投屏</b><span>设置与适配 · 3 条</span></a>
+          <a href="/#news"><b>版权与二创边界</b><span>规则解读 · 2 条</span></a>
+          <a href="/#ranking"><b>本周完播榜</b><span>数据榜单 · 1 条</span></a>
+        </div>
+      </section>
+
+      <section class="block" id="analysis" aria-labelledby="anTitle">
+        <div class="block-head">
+          <span class="eyebrow">深度解析</span>
+          <h2 id="anTitle">短剧留存变慢，是内容变好还是算法变宽</h2>
+          <span class="sub">只讨论可核对的部分</span>
+        </div>
+        <div class="analysis">
+          <p>十月的短剧投放圈里流传一句话：前 30 秒不再决定生死。听起来像创作者终于能松口气，但把三个平台的后台口径并排放，结论没那么简单。</p>
+
+          <div class="claim">
+            <b>核心判断：</b>留存曲线变平缓，主要来自平台推荐机制对「完播后继续看同账号」的加权，而不是观众对慢开场的容忍度提高。判断依据是同一部剧在两套推荐策略下的曲线差异，幅度超过 9 个百分点。
+          </div>
+
+          <h3>一、同一部剧，两套推荐策略下的三组数字</h3>
+          <p>《合租第七天》在 10 月 28 日做过一次 A/B 分流：A 组按单集完播加权，B 组额外加「同账号次集点击」权重。样本各 4.2 万次曝光，比较第 3 集到第 4 集的流失率。</p>
+          <table class="cmp">
+            <caption>数据来源：作者 11 月 3 日公开的分流截图，样本为 10 月 28 日 20:00–24:00</caption>
+            <thead><tr><th>指标</th><th>A 组（单集完播）</th><th>B 组（加次集权重）</th></tr></thead>
+            <tbody>
+              <tr><td>第 3 集完播率</td><td>61.4%</td><td>60.8%</td></tr>
+              <tr><td>第 4 集点击率</td><td>27.9%</td><td>37.2%</td></tr>
+              <tr><td>前 15 秒跳出率</td><td>43.1%</td><td>41.6%</td></tr>
+            </tbody>
+          </table>
+          <p>差异集中在第 4 集点击率上，9.3 个百分点。第 3 集完播率几乎没动，说明观众不是突然更爱看慢开场，而是被「下一集」入口推着走。</p>
+
+          <h3>二、平台规则的说法差异</h3>
+          <p>三家平台在 10 月的创作者说明里，对「次集点击」的表述并不一致：一家写进推荐权重说明，一家只在后台看板提供指标但不承诺加权，另一家干脆不发公告、只在内测群里口头提过。把这三种说法当成同一件事去引用，是最常见的误读。</p>
+          <ul>
+            <li><b>事实：</b>10 月 21 日某平台更新了创作者后台的指标说明页，新增「次集点击转化」词条。</li>
+            <li><b>回应：</b>该平台运营在 10 月 24 日的直播里回应，指标是「观测用」，是否进入排序未给出明确答复。</li>
+            <li><b>转述：</b>有 MCN 在 10 月 27 日的行业分享里称「已确认加权」，现场未出示截图。</li>
+            <li><b>推测：</b>如果加权在 11 月继续存在，慢开场的短剧会更多，但单集时长不太可能普遍超过 8 分钟。</li>
+          </ul>
+
+          <h3>三、创作者端的对应动作</h3>
+          <p>变化最快的是剪辑节奏。11 月第一周，社交平台上至少 6 位短剧剪辑师提到，把第 1 集的前 15 秒冲突点往后挪了 5–8 秒，改为先交代人物关系。这与「算法变宽」的判断一致，但另一组数据更值得注意：</p>
+          <ol class="timeline">
+            <li><time datetime="2026-10-20">10 月 20 日</time>某短剧账号连续 5 集把钩子放在第 20 秒后，第 3 集起流失率回升到 38%。</li>
+            <li><time datetime="2026-10-29">10 月 29 日</time>同一账号改回第 12 秒放钩子，流失率降到 29%。</li>
+            <li><time datetime="2026-11-04">11 月 4 日</time>作者在动态里写，「钩子可以晚，但不能没有，晚了就得用人物关系补上」。</li>
+          </ol>
+          <p>所以更准确的表述是：推荐机制给了慢开场一个窗口，但窗口只对人物立得住的剧开放。把这句话反过来读——人物立不住，晚放钩子只会加速流失。</p>
+
+          <div class="factnote">可核对项：分流截图时间、三组百分比、两家平台的公告日期、动态原文措辞均可回查。无法核对的是「加权将持续多久」，本文不给预测。</div>
+        </div>
+      </section>
+
+      <section class="block" id="guide" aria-labelledby="guideTitle">
+        <div class="block-head">
+          <span class="eyebrow">体验指南</span>
+          <h2 id="guideTitle">第一次按主题看，怎么少走弯路</h2>
+          <span class="sub">五步，从选片到投屏</span>
+        </div>
+        <ol class="steps">
+          <li><b>先定时长再看题材</b>通勤 20 分钟就选单集 4 分钟以内的竖屏短剧，看 5 集；整块时间再看 15 分钟以上的生活记录。</li>
+          <li><b>用合集页代替单条推荐</b>合集页能看到总时长与集数，比算法推的单条更容易判断值不值得进入。</li>
+          <li><b>检查字幕与音轨</b>竖屏内容常在转存后丢字幕。打开第 1 集先看 30 秒，字幕不开或音轨错位就换源。</li>
+          <li><b>投屏前改比例</b>手机竖屏投到电视会留大黑边，多数播放器有「铺满」选项，但会裁掉上下字幕，需按内容取舍。</li>
+          <li><b>收藏而非点赞</b>收藏夹按主题分组，一周后回看，留下的通常比点赞的更适合反复看。</li>
+        </ol>
+
+        <div class="versus" style="margin-top:var(--sp-4)">
+          <div>
+            <h3>手机竖屏直接看</h3>
+            <ul>
+              <li>适合短剧、整活、口播</li>
+              <li>字幕位置默认靠下，单手可操作</li>
+              <li>切集快，但容易连刷超时</li>
+            </ul>
+          </div>
+          <div>
+            <h3>投屏或平板横屏</h3>
+            <ul>
+              <li>适合混剪、教程、长 vlog</li>
+              <li>画面细节更清楚，调色看得准</li>
+              <li>竖屏素材需处理黑边</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="ranking" aria-labelledby="rankTitle">
+        <div class="block-head">
+          <span class="eyebrow">补充榜单</span>
+          <h2 id="rankTitle">本周完播率前排（示例统计）</h2>
+          <span class="sub">统计口径：单集完播率，样本 1 万次以上曝光</span>
+        </div>
+        <ol class="rank">
+          <li><span class="rk">1</span><span>《合租第七天》第 6 集 · 竖屏短剧</span><span class="score">完播 74.2%</span></li>
+          <li><span class="rk">2</span><span>手机剪辑：38 秒卡点转场 · 教程</span><span class="score">完播 71.5%</span></li>
+          <li><span class="rk">3</span><span>年会反向操作第 7 条 · 整活</span><span class="score">完播 68.9%</span></li>
+          <li><span class="rk">4</span><span>一人食第 24 期 · 生活记录</span><span class="score">完播 66.3%</span></li>
+          <li><span class="rk">5</span><span>夜戏混剪 · 影视混剪</span><span class="score">完播 62.7%</span></li>
+        </ol>
+      </section>
+
+      <section class="block" id="comments" aria-labelledby="cmTitle">
+        <div class="block-head">
+          <span class="eyebrow">用户评论</span>
+          <h2 id="cmTitle">观众在具体条目下的留言</h2>
+          <span class="sub">保留原话，含中性评价</span>
+        </div>
+        <div class="quote-grid">
+          <div class="quote">
+            <p>「第 3 集那个钥匙串伏笔我回看了两遍，但第 7 集之后就有点拖，32 集砍到 24 集可能更好。」</p>
+            <div class="who"><span>@南窗听雨 · 关于《合租第七天》</span><span class="rating">★★★★☆</span></div>
+          </div>
+          <div class="quote">
+            <p>「卡点那个 2 帧对齐的说法挺实用，我照着重做了年会视频，播放量没变，但自己看着顺眼多了。」</p>
+            <div class="who"><span>@阿栗不熬夜 · 关于剪辑教程</span><span class="rating">★★★★★</span></div>
+          </div>
+          <div class="quote">
+            <p>「年会合集第 4 条音轨换过之后，现场感没了。原版那种杂音才是真的。」</p>
+            <div class="who"><span>@三号楼老张 · 关于整活合集</span><span class="rating">★★★☆☆</span></div>
+          </div>
+          <div class="quote">
+            <p>「一人食第 24 期灶台机位太高了，切菜的时候看不到案板。第 23 期的角度更舒服。」</p>
+            <div class="who"><span>@青椒炒一切 · 关于生活记录</span><span class="rating">★★★☆☆</span></div>
+          </div>
+          <div class="quote">
+            <p>「投屏那节说得对，我折腾半小时才发现是播放器的比例问题，不是电视的问题。」</p>
+            <div class="who"><span>@楼下有猫 · 关于观看指南</span><span class="rating">★★★★☆</span></div>
+          </div>
+          <div class="quote">
+            <p>「夜戏混剪的调色参数表下载不了，简介里的链接点开是空的，作者能补一下吗。」</p>
+            <div class="who"><span>@剪辑小吴 · 关于影视混剪</span><span class="rating">★★☆☆☆</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="faq" aria-labelledby="faqTitle">
+        <div class="block-head">
+          <span class="eyebrow">常见问题</span>
+          <h2 id="faqTitle">看竖屏短剧与混剪常问的 6 件事</h2>
+        </div>
+        <details class="faq">
+          <summary>竖屏短剧一集多长才算正常？</summary>
+          <div class="ans">主流在 90 秒到 4 分钟之间，8 分钟以上多见于「一集一故事」的横屏短剧。单集越长，前 15 秒的钩子压力越大，30 集以上的长剧通常会把单集压到 3 分钟以内。</div>
+        </details>
+        <details class="faq">
+          <summary>影视混剪用多长的片段比较安全？</summary>
+          <div class="ans">行业内常见口径是单段不超过 10–15 秒，且需与评论、解说或明显二创处理结合。这只是实践惯例，不构成法律意见，实际边界仍取决于原片方与平台规则。</div>
+        </details>
+        <details class="faq">
+          <summary>手机剪辑卡点为什么总差半拍？</summary>
+          <div class="ans">多半是音轨标记点与画面切点没对齐。剪映的标记点吸附以帧为单位，24fps 素材上差 2 帧肉眼就能看出来。导入前先确认素材帧率，再放标记点会省很多返工。</div>
+        </details>
+        <details class="faq">
+          <summary>合集页里的条目为什么有时点不开？</summary>
+          <div class="ans">作者删除、转存失效或被平台下架都会导致跳转失败。合集页每条标注了收录日期，超过 30 天的条目失效概率明显更高，遇到打不开可以回站内搜索同名关键词。</div>
+        </details>
+        <details class="faq">
+          <summary>投屏后画面两侧黑边能去掉吗？</summary>
+          <div class="ans">能，但要看播放器。多数播放器提供「铺满」或「拉伸」选项，代价是竖屏素材上下会被裁切，字幕常常首当其冲。教程类和混剪建议保留黑边，剧情类可以尝试铺满。</div>
+        </details>
+        <details class="faq">
+          <summary>生活记录类视频为什么收藏多、点赞少？</summary>
+          <div class="ans">一人食、租房改造这类内容的使用场景是「以后照着做」，观众倾向于存下来而不是当场点赞。收藏率高于点赞率在这个品类里是常态，不代表内容不受欢迎。</div>
+        </details>
+      </section>
+
+      <section class="block" id="news" aria-labelledby="newsTitle">
+        <div class="block-head">
+          <span class="eyebrow">相关资讯</span>
+          <h2 id="newsTitle">11 月初的几条行业动态</h2>
+        </div>
+        <ul class="news-list">
+          <li><b>某平台更新创作者后台指标说明，新增次集点击转化词条</b>10 月 21 日生效，页面同步调整了指标排列顺序，但未说明是否进入推荐排序。<span class="src">平台创作中心公告页</span></li>
+          <li><b>短剧分账结算周期调整</b>11 月 1 日起，部分竖屏短剧的分账从月结改为半月结，适用范围以合同签署批次为准。<span class="src">发行方内部通知转述</span></li>
+          <li><b>剪辑工具更新字幕自动对齐</b>剪映 9.8 版在 10 月 30 日的版本说明里提到，中文语音识别准确率提升，长句断行仍需人工核对。<span class="src">版本更新日志</span></li>
+        </ul>
+      </section>
+
+      <section class="block" id="reco" aria-labelledby="recoTitle">
+        <div class="block-head">
+          <span class="eyebrow">相关推荐</span>
+          <h2 id="recoTitle">顺着这些词继续找</h2>
+        </div>
+        <div class="reco">
+          <a href="/#featured">竖屏短剧推荐</a>
+          <a href="/#featured">搞笑整活合集</a>
+          <a href="/#featured">手机剪辑卡点教程</a>
+          <a href="/#featured">一人食生活记录</a>
+          <a href="/#analysis">短剧完播率怎么看</a>
+          <a href="/#guide">竖屏视频投屏设置</a>
+          <a href="/#news">影视混剪版权边界</a>
+          <a href="/#ranking">短剧完播榜</a>
+          <a href="/#comments">短剧观众真实评价</a>
+        </div>
+      </section>
+
+    </div>
+
+    <aside class="side-col" aria-label="侧栏导航与补充信息">
+      <nav class="side-card" aria-labelledby="sideNavTitle">
+        <h2 id="sideNavTitle">栏目导航</h2>
+        <ul class="side-nav" id="sideNav">
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#featured">精选内容推荐</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#channels">分类入口</a></li>
+          <li><a href="/#analysis">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#ranking">补充榜单</a></li>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#reco">相关推荐</a></li>
+        </ul>
+      </nav>
+
+      <div class="side-card">
+        <h2>本周收录口径</h2>
+        <ul class="mini-list">
+          <li><b>时间</b>2026-11-05 至 2026-11-08</li>
+          <li><b>可跳转</b>46 条，失效 0 条</li>
+          <li><b>频道</b>9 个，含 2 个工具类</li>
+          <li><b>深度内容</b>1 篇，含 3 组可核对数据</li>
+        </ul>
+        <p class="fine" style="margin-top:10px">条目均为示例数据，用于展示收录结构；实际跳转以作者主页为准。</p>
+      </div>
+
+      <div class="side-card">
+        <h2>今天更新了 2 条</h2>
+        <ul class="mini-list">
+          <li><b>《合租第七天》</b>第 31–32 集</li>
+          <li><b>年会反向操作合集</b>第 2 版</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="fbrand">
+          <svg width="28" height="28" viewBox="0 0 64 64" role="img" aria-label="啊啊啊轻点艹视频 页脚标志">
+            <rect width="64" height="64" rx="14" fill="#ff5c6c"/>
+            <path d="M23 19l24 13-24 13z" fill="#151827"/>
+          </svg>
+          <span>啊啊啊轻点艹视频</span>
+        </div>
+        <p>为短剧、整活与剪辑教程做条目化收录，把平台、时长、更新节奏写清楚，减少点开再关掉的时间。</p>
+      </div>
+      <div>
+        <h4>内容频道</h4>
+        <ul>
+          <li><a href="/#featured">竖屏短剧</a></li>
+          <li><a href="/#featured">搞笑整活</a></li>
+          <li><a href="/#featured">生活记录</a></li>
+          <li><a href="/#featured">手机剪辑教程</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>查找与判断</h4>
+        <ul>
+          <li><a href="/#analysis">短剧留存解析</a></li>
+          <li><a href="/#guide">观看与投屏指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#ranking">本周完播榜</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于收录</h4>
+        <ul>
+          <li><a href="/#latest">更新日历</a></li>
+          <li><a href="/#comments">观众留言</a></li>
+          <li><a href="/#news">行业资讯</a></li>
+          <li><a href="/#reco">相关推荐</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>全部条目为示例数据，仅用于展示收录结构；品牌、授权、备案及联系方式以官方资料为准。</span>
+      <span>更新时间 2026-11-08 · 对应正文「最新更新」与「深度解析」两处可核对项</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var menuBtn = document.getElementById('menuBtn');
+  var nav = document.getElementById('primaryNav');
+  if(menuBtn && nav){
+    menuBtn.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && window.innerWidth <= 720){
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 480){ toTop.classList.add('show'); }
+    else{ toTop.classList.remove('show'); }
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var sections = links.map(function(a){
+    var id = a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  });
+  function syncActive(){
+    var y = window.scrollY + 160;
+    var idx = -1;
+    for(var i=0;i<sections.length;i++){
+      if(sections[i] && sections[i].offsetTop <= y){ idx = i; }
+    }
+    links.forEach(function(a,i){
+      if(i === idx){ a.classList.add('active'); }
+      else{ a.classList.remove('active'); }
+    });
+  }
+  window.addEventListener('scroll', syncActive, {passive:true});
+  syncActive();
+
+  var form = document.getElementById('searchForm');
+  var input = document.getElementById('q');
+  var feedback = document.getElementById('searchFeedback');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var kw = input.value.trim().toLowerCase();
+    if(!kw){
+      feedback.textContent = '请输入关键词，例如「短剧」「卡点转场」「一人食」。';
+      return;
+    }
+    var blocks = document.querySelectorAll('.main-col section.block');
+    var hits = [];
+    blocks.forEach(function(sec){
+      if(sec.textContent.toLowerCase().indexOf(kw) !== -1){
+        var h = sec.querySelector('h2');
+        hits.push({id: sec.id, name: h ? h.textContent : sec.id});
+      }
+    });
+    if(hits.length === 0){
+      feedback.textContent = '没有找到与「' + input.value.trim() + '」相关的栏目，试试「竖屏短剧」「剪辑教程」或「常见问题」。';
+      return;
+    }
+    feedback.textContent = '找到 ' + hits.length + ' 个相关栏目：' + hits.map(function(h){return h.name;}).join('、') + '。';
+    var target = document.getElementById(hits[0].id);
+    if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "啊啊啊轻点艹视频",
+  "alternateName": "短视频内容导航",
+  "description": "短剧、整活、生活记录与剪辑教程的条目化收录与观看指南。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "竖屏短剧一集多长才算正常？",
+      "acceptedAnswer": {"@type": "Answer", "text": "主流在 90 秒到 4 分钟之间，8 分钟以上多见于一集一故事的横屏短剧。单集越长，前 15 秒的钩子压力越大。"}
+    },
+    {
+      "@type": "Question",
+      "name": "影视混剪用多长的片段比较安全？",
+      "acceptedAnswer": {"@type": "Answer", "text": "常见实践口径是单段不超过 10–15 秒，并需配合解说或明显二创处理。这是行业惯例，不构成法律意见。"}
+    },
+    {
+      "@type": "Question",
+      "name": "手机剪辑卡点为什么总差半拍？",
+      "acceptedAnswer": {"@type": "Answer", "text": "多是音轨标记点与画面切点未对齐。24fps 素材上差 2 帧肉眼可辨，导入前先确认素材帧率。"}
+    },
+    {
+      "@type": "Question",
+      "name": "合集页里的条目为什么有时点不开？",
+      "acceptedAnswer": {"@type": "Answer", "text": "作者删除、转存失效或平台下架都会导致跳转失败，超过 30 天的条目失效概率更高。"}
+    },
+    {
+      "@type": "Question",
+      "name": "投屏后画面两侧黑边能去掉吗？",
+      "acceptedAnswer": {"@type": "Answer", "text": "多数播放器提供铺满选项，代价是竖屏素材上下被裁切，字幕常受影响。教程类和混剪建议保留黑边。"}
+    },
+    {
+      "@type": "Question",
+      "name": "生活记录类视频为什么收藏多、点赞少？",
+      "acceptedAnswer": {"@type": "Answer", "text": "一人食、租房改造等内容的使用场景是以后照着做，观众倾向收藏而非当场点赞，收藏率高于点赞率属常态。"}
+    }
+  ]
+}
+</script>
+</body>
+        </html>
