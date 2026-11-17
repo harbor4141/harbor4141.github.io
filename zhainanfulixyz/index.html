@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宅男福利 xyz-二次元资源与番剧推荐站</title>
+<meta name="description" content="宅男福利 xyz 是面向二次元爱好者的番剧与游戏资源推荐站，整理新番日历、galgame 补丁、手办情报与同人展会信息，附上手体验与避坑清单，帮你在有限时间里挑到对味的作品。">
+<meta name="keywords" content="宅男福利 xyz">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b2340'/%3E%3Cpath d='M18 22h28v16a8 8 0 0 1-8 8H26a8 8 0 0 1-8-8z' fill='none' stroke='%23f5a524' stroke-width='4'/%3E%3Ccircle cx='27' cy='31' r='3' fill='%237ee0d0'/%3E%3Ccircle cx='37' cy='31' r='3' fill='%237ee0d0'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"宅男福利 xyz","description":"面向二次元爱好者的番剧、游戏与手办资源推荐站","inLanguage":"zh-CN"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"2026年10月新番里哪部适合先看第一集就判断弃留？","acceptedAnswer":{"@type":"Answer","text":"《灰鸟夜航》第1集用22分钟完成一次伏笔回收，节奏密度高，看一集基本能判断是否对味，比按PV猜更靠谱。"}},
+{"@type":"Question","name":"galgame汉化补丁装不上通常是什么原因？","acceptedAnswer":{"@type":"Answer","text":"多为游戏本体版本与补丁日期不匹配，例如本体为2026年9月更新版而补丁基于8月版，需要先核对版本号再覆盖文件。"}},
+{"@type":"Question","name":"手办预售定金和全款差多少值得等？","acceptedAnswer":{"@type":"Answer","text":"定金通常为全款20%到30%，热门厂牌补款期在6到9个月后，若二手现货溢价低于15%，直接买现货更省心。"}},
+{"@type":"Question","name":"同人展会现场买本和事后通贩价格差多少？","acceptedAnswer":{"@type":"Answer","text":"现场首发价通常比通贩低10元到30元，且附赠特典，但通贩可合并邮费，买三本以上时差价会被运费抹平。"}}
+]}
+</script>
+<style>
+:root{
+  --bg:#0f1420;--bg2:#151c2c;--panel:#1b2340;--panel2:#202a48;
+  --ink:#e8ecf6;--ink2:#a9b3cb;--ink3:#737f9b;
+  --acc:#f5a524;--acc2:#7ee0d0;--line:#2a3453;
+  --radius:14px;--radius-s:8px;
+  --sp:clamp(14px,2.4vw,26px);
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --font:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:132px}
+body{margin:0;font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{line-height:1.35;margin:0 0 .6em}
+p{margin:0 0 .9em}
+ul,ol{margin:0 0 1em;padding-left:1.2em}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1180px,100% - 2*var(--sp));margin-inline:auto}
+
+/* 公告条 + 页头 吸顶 */
+.stickwrap{position:sticky;top:0;z-index:60}
+.notice{background:linear-gradient(90deg,#3a2a12,#241a2d);border-bottom:1px solid var(--line);font-size:13px}
+.notice .wrap{display:flex;gap:12px;align-items:center;justify-content:center;padding:7px 0;flex-wrap:wrap;text-align:center}
+.notice b{color:var(--acc);font-weight:600}
+.notice time{color:var(--ink2)}
+header.site{background:rgba(15,20,32,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;gap:14px;padding:10px 0}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;letter-spacing:.5px;white-space:nowrap}
+.brand svg{width:34px;height:34px;flex:none}
+.brand span{font-size:17px}
+.navmain{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.navmain a{padding:7px 11px;border-radius:999px;font-size:14px;color:var(--ink2)}
+.navmain a:hover,.navmain a:focus-visible{background:var(--panel);color:var(--ink)}
+.headtools{display:flex;align-items:center;gap:8px}
+.searchbox{display:flex;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 6px 4px 12px}
+.searchbox input{background:none;border:0;color:var(--ink);width:130px;font-size:14px;padding:4px 0}
+.searchbox input::placeholder{color:var(--ink3)}
+.searchbox button{background:var(--acc);color:#1a1205;border:0;border-radius:999px;padding:5px 13px;font-size:13px;font-weight:600;cursor:pointer}
+.menuBtn{display:none;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:var(--radius-s);padding:7px 12px;font-size:14px;cursor:pointer}
+#searchMsg{font-size:13px;color:var(--acc2);padding:0 0 8px;min-height:0}
+
+/* 首屏 */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:radial-gradient(900px 380px at 82% -10%,rgba(245,165,36,.16),transparent 60%),radial-gradient(700px 320px at 10% 110%,rgba(126,224,208,.12),transparent 60%)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(16px,3vw,42px);align-items:center;padding:clamp(26px,5vw,56px) 0}
+.tagchip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:4px 12px;font-size:12.5px;color:var(--acc2);margin-bottom:14px}
+.tagchip i{width:7px;height:7px;border-radius:50%;background:var(--acc2);display:inline-block}
+.hero h1{font-size:clamp(28px,4.6vw,46px);letter-spacing:1px;margin-bottom:12px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.lede{color:var(--ink2);font-size:clamp(15px,1.6vw,17px);max-width:46ch}
+.heroActs{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-block;padding:10px 20px;border-radius:999px;font-size:14.5px;font-weight:600;transition:transform .18s}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:var(--acc);color:#1a1205}
+.btn-g{border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+.stats{display:flex;gap:26px;margin-top:26px;flex-wrap:wrap}
+.stats div b{display:block;font-size:22px;color:var(--acc2);line-height:1.2}
+.stats div span{font-size:12.5px;color:var(--ink3)}
+.heroArt{position:relative;min-height:280px}
+.heroArt svg{width:100%;height:auto}
+.floatCard{position:absolute;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-s);padding:8px 12px;font-size:12.5px;color:var(--ink2);box-shadow:var(--shadow)}
+.floatCard b{color:var(--acc);display:block;font-size:14px}
+.fc1{top:6%;right:2%}
+.fc2{bottom:8%;left:0}
+
+/* 主内容 */
+.main{padding:clamp(24px,4vw,46px) 0}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:clamp(18px,3vw,36px);align-items:start}
+.sec{margin-bottom:clamp(28px,4vw,46px);scroll-margin-top:140px}
+.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.sec-head h2{font-size:clamp(19px,2.4vw,23px);margin:0}
+.sec-head .k{font-size:12.5px;color:var(--ink3)}
+.more{margin-left:auto;font-size:13px;color:var(--acc2)}
+.more:hover{text-decoration:underline}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px;transition:transform .18s,border-color .18s}
+.card:hover{transform:translateY(-3px);border-color:#3a4870}
+.card h3{font-size:15.5px;margin-bottom:6px}
+.card p{font-size:13.5px;color:var(--ink2);margin:0 0 8px}
+.card .meta{font-size:12px;color:var(--ink3);display:flex;gap:10px;flex-wrap:wrap}
+.pill{display:inline-block;font-size:11.5px;border:1px solid var(--line);border-radius:999px;padding:1px 9px;color:var(--acc2);background:rgba(126,224,208,.07)}
+.pill.warn{color:var(--acc);background:rgba(245,165,36,.1);border-color:#4a3a18}
+
+.thumb{width:100%;height:120px;object-fit:cover;border-radius:var(--radius-s);margin-bottom:10px;background:var(--panel2)}
+
+.list{list-style:none;padding:0;margin:0}
+.list li{display:flex;gap:12px;padding:11px 2px;border-bottom:1px dashed var(--line);align-items:baseline;font-size:14.5px}
+.list li:last-child{border-bottom:0}
+.list time{color:var(--ink3);font-size:12.5px;flex:none;font-variant-numeric:tabular-nums}
+.list a:hover{color:var(--acc2)}
+.list .sub{color:var(--ink3);font-size:12.5px;margin-left:auto;flex:none}
+
+.chanGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.chan{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-s);padding:11px 12px;font-size:14px}
+.chan small{display:block;color:var(--ink3);font-size:12px;margin-top:2px}
+.chan:hover{border-color:var(--acc);color:var(--acc)}
+
+.article{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(16px,3vw,26px)}
+.article h3{font-size:17px;color:var(--acc2);margin-top:1.4em}
+.article h3:first-of-type{margin-top:0}
+.article p{color:#d7dceb;font-size:15px}
+.article .callout{border-left:3px solid var(--acc);background:rgba(245,165,36,.07);padding:10px 14px;border-radius:0 var(--radius-s) var(--radius-s) 0;font-size:14.5px;margin:1em 0}
+.cmp{width:100%;border-collapse:collapse;font-size:13.5px;margin:1em 0}
+.cmp th,.cmp td{border:1px solid var(--line);padding:8px 10px;text-align:left}
+.cmp th{background:var(--panel2);color:var(--acc2);font-weight:600}
+.cmp caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--ink3);padding-bottom:6px}
+
+.steps{list-style:none;padding:0;counter-reset:s;display:grid;gap:10px}
+.steps li{counter-increment:s;display:flex;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-s);padding:12px 14px;font-size:14px}
+.steps li::before{content:counter(s);flex:none;width:26px;height:26px;border-radius:50%;background:var(--acc);color:#1a1205;font-weight:700;font-size:13px;display:grid;place-items:center;margin-top:2px}
+.steps b{display:block;font-size:14.5px}
+.steps span{color:var(--ink2);font-size:13px}
+
+details{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-s);padding:0;margin-bottom:9px;overflow:hidden}
+summary{cursor:pointer;padding:12px 40px 12px 14px;font-size:14.5px;position:relative;list-style:none;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:14px;top:9px;font-size:19px;color:var(--acc);font-weight:400}
+details[open] summary::after{content:"−"}
+details .ans{padding:0 16px 13px;font-size:14px;color:var(--ink2)}
+
+.comments{display:grid;gap:11px}
+.cmt{display:flex;gap:11px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-s);padding:11px 13px}
+.av{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;color:#10151f}
+.cmt .who{font-size:13px;color:var(--acc2);font-weight:600}
+.cmt .who time{color:var(--ink3);font-weight:400;margin-left:8px;font-size:12px}
+.cmt p{margin:2px 0 0;font-size:14px;color:#d7dceb}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags a{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:5px 13px;font-size:13px;color:var(--ink2)}
+.tags a:hover{border-color:var(--acc2);color:var(--acc2)}
+
+.rank{list-style:none;padding:0;margin:0;counter-reset:r}
+.rank li{counter-increment:r;display:flex;gap:11px;align-items:baseline;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.rank li::before{content:counter(r);flex:none;width:22px;font-weight:700;color:var(--ink3);font-variant-numeric:tabular-nums}
+.rank li:nth-child(-n+3)::before{color:var(--acc)}
+.rank .v{margin-left:auto;color:var(--ink3);font-size:12.5px;flex:none}
+
+.timeline{list-style:none;padding:0 0 0 18px;margin:0;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 16px 6px;font-size:14px}
+.timeline li::before{content:"";position:absolute;left:-25px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--acc);border:2px solid var(--bg)}
+.timeline b{display:block;font-size:14.5px;color:var(--acc2)}
+.timeline time{color:var(--ink3);font-size:12.5px}
+
+/* 侧栏 */
+aside{display:grid;gap:16px;position:sticky;top:132px}
+.side{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px}
+.side h2{font-size:15px;margin-bottom:10px;color:var(--acc)}
+.side nav a{display:block;padding:6px 9px;border-radius:6px;font-size:13.5px;color:var(--ink2);border-left:2px solid transparent}
+.side nav a.active,.side nav a:hover{background:var(--panel2);color:var(--ink);border-left-color:var(--acc)}
+.side .note{font-size:12.5px;color:var(--ink3);line-height:1.6}
+
+/* 页尾 */
+footer{border-top:1px solid var(--line);background:var(--bg2);padding:clamp(26px,4vw,44px) 0 20px;margin-top:10px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px}
+.fgrid h3{font-size:14px;color:var(--acc);margin-bottom:10px}
+.fgrid a{display:block;font-size:13.5px;color:var(--ink2);padding:3px 0}
+.fgrid a:hover{color:var(--acc2)}
+.fbrand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:17px;margin-bottom:10px}
+.fbrand svg{width:30px;height:30px}
+.fdesc{font-size:13px;color:var(--ink3);max-width:32ch}
+.copy{border-top:1px solid var(--line);margin-top:24px;padding-top:14px;font-size:12.5px;color:var(--ink3);display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between}
+
+#toTop{position:fixed;right:18px;bottom:18px;z-index:70;background:var(--acc);color:#1a1205;border:0;border-radius:50%;width:44px;height:44px;font-size:19px;font-weight:700;cursor:pointer;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{transform:translateY(-3px)}
+
+@media (max-width:960px){
+  .layout{grid-template-columns:1fr}
+  aside{position:static;order:2;grid-template-columns:repeat(2,1fr)}
+  .hero .wrap{grid-template-columns:1fr}
+  .heroArt{order:-1;min-height:220px}
+  .grid3{grid-template-columns:repeat(2,1fr)}
+  .chanGrid{grid-template-columns:repeat(3,1fr)}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .navmain{display:none}
+  .navmain.open{display:flex;width:100%;margin:6px 0 0}
+  .menuBtn{display:inline-block}
+  .hbar{flex-wrap:wrap}
+  .headtools{margin-left:auto}
+  .searchbox input{width:100px}
+}
+@media (max-width:600px){
+  .grid3,.grid2,.chanGrid,aside,.fgrid{grid-template-columns:1fr}
+  .searchbox{display:none}
+  .hbar{gap:8px}
+  .stats{gap:18px}
+  .list li{flex-wrap:wrap}
+  .list .sub{margin-left:0}
+  #toTop{bottom:14px;right:12px;width:40px;height:40px}
+  .heroArt{min-height:180px}
+  .floatCard{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .card:hover,.btn:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="stickwrap">
+  <div class="notice" role="status">
+    <div class="wrap">
+      <span><b>宅男福利 xyz</b> 公告：</span>
+      <span>《灰鸟夜航》第1集免费试看开放至 <time datetime="2026-11-05">11月5日</time></span>
+      <span class="pill warn">补丁库更新 3 条</span>
+      <span>秋季同人展「霜月祭」摊位表已发布</span>
+    </div>
+  </div>
+  <header class="site">
+    <div class="wrap hbar">
+      <a class="brand" href="/#top" aria-label="宅男福利 xyz 首页">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#202a48"/><path d="M18 22h28v16a8 8 0 0 1-8 8H26a8 8 0 0 1-8-8z" fill="none" stroke="#f5a524" stroke-width="4"/><circle cx="27" cy="31" r="3" fill="#7ee0d0"/><circle cx="37" cy="31" r="3" fill="#7ee0d0"/><path d="M26 38h12" stroke="#7ee0d0" stroke-width="3" stroke-linecap="round"/></svg>
+        <span>宅男福利 xyz</span>
+      </a>
+      <button class="menuBtn" id="menuBtn" aria-expanded="false" aria-controls="navmain">频道菜单</button>
+      <nav class="navmain" id="navmain" aria-label="主题导航">
+        <a href="/#overview">领域概览</a>
+        <a href="/#pick">编辑精选</a>
+        <a href="/#latest">最新更新</a>
+        <a href="/#channel">分类频道</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#faq">常见问答</a>
+      </nav>
+      <div class="headtools">
+        <div class="searchbox">
+          <input type="search" id="q" placeholder="搜番剧 / 补丁 / 手办" aria-label="站内查找">
+          <button id="qBtn" type="button">查找</button>
+        </div>
+      </div>
+    </div>
+    <div class="wrap"><div id="searchMsg" role="status" aria-live="polite"></div></div>
+  </header>
+</div>
+
+<main class="main" id="top">
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="wrap">
+      <div>
+        <span class="tagchip"><i></i>2026 秋季档 · 番剧与游戏资源索引</span>
+        <h1 id="heroTitle">宅男福利 <em>xyz</em></h1>
+        <p class="lede">把秋季新番、galgame 汉化补丁、手办预售和同人展会摊表摊在一张桌上。每条都标了日期、版本号和来源，看完知道自己该点哪一集、该不该等补款。</p>
+        <div class="heroActs">
+          <a class="btn btn-p" href="/#pick">看本周精选 8 部</a>
+          <a class="btn btn-g" href="/#latest">最新更新清单</a>
+        </div>
+        <div class="stats">
+          <div><b>37</b><span>本季收录番剧</span></div>
+          <div><b>19</b><span>补丁版本记录</span></div>
+          <div><b>64</b><span>手办预售条目</span></div>
+          <div><b>11.08</b><span>榜单更新日</span></div>
+        </div>
+      </div>
+      <div class="heroArt" aria-hidden="true">
+        <svg viewBox="0 0 420 340" role="img" aria-label="番剧播放条与手柄组成的装饰图形">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#26315a"/><stop offset="1" stop-color="#151c2c"/>
+            </linearGradient>
+          </defs>
+          <rect x="20" y="30" width="300" height="170" rx="14" fill="url(#g1)" stroke="#2a3453"/>
+          <rect x="40" y="52" width="120" height="70" rx="8" fill="#202a48" stroke="#3a4870"/>
+          <circle cx="100" cy="87" r="16" fill="none" stroke="#f5a524" stroke-width="3"/>
+          <path d="M96 79l12 8-12 8z" fill="#f5a524"/>
+          <rect x="176" y="56" width="124" height="10" rx="5" fill="#39456b"/>
+          <rect x="176" y="76" width="96" height="8" rx="4" fill="#2f3a5c"/>
+          <rect x="176" y="94" width="110" height="8" rx="4" fill="#2f3a5c"/>
+          <rect x="40" y="140" width="260" height="8" rx="4" fill="#2f3a5c"/>
+          <rect x="40" y="140" width="168" height="8" rx="4" fill="#f5a524"/>
+          <circle cx="208" cy="144" r="7" fill="#7ee0d0"/>
+          <g transform="translate(120 210)">
+            <rect x="0" y="20" width="180" height="70" rx="34" fill="#202a48" stroke="#3a4870"/>
+            <circle cx="46" cy="55" r="18" fill="#151c2c" stroke="#7ee0d0" stroke-width="2"/>
+            <rect x="40" y="52" width="12" height="6" rx="3" fill="#7ee0d0"/>
+            <rect x="43" y="49" width="6" height="12" rx="3" fill="#7ee0d0"/>
+            <circle cx="128" cy="46" r="6" fill="#f5a524"/>
+            <circle cx="146" cy="62" r="6" fill="#f5a524"/>
+            <circle cx="110" cy="62" r="6" fill="#f5a524"/>
+            <circle cx="128" cy="78" r="6" fill="#f5a524"/>
+          </g>
+          <circle cx="352" cy="92" r="26" fill="none" stroke="#7ee0d0" stroke-width="2" stroke-dasharray="4 6"/>
+          <circle cx="352" cy="92" r="9" fill="#7ee0d0" opacity=".6"/>
+        </svg>
+        <div class="floatCard fc1"><b>第 1 集可判弃留</b>22 分钟回收伏笔</div>
+        <div class="floatCard fc2"><b>补丁版本核对</b>本体 1.24 ≠ 补丁 1.21</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="layout">
+      <div>
+
+        <!-- 领域概览 -->
+        <section class="sec" id="overview">
+          <div class="sec-head"><h2>领域概览：这一季在追什么、玩什么</h2><span class="k">更新于 2026-11-08</span></div>
+          <div class="grid3">
+            <div class="card">
+              <span class="pill">番剧</span>
+              <h3>秋季 37 部新番的档期分层</h3>
+              <p>10 月 3 日开播的 14 部进第三周，剧情向作品留存率明显高于爽番；10 月 21 日后的第二波 9 部尚未过三集定律。</p>
+              <div class="meta"><span>巴哈姆特动画疯</span><span>11-07</span></div>
+            </div>
+            <div class="card">
+              <span class="pill">游戏</span>
+              <h3>汉化补丁 9 月后集中更新</h3>
+              <p>《雪原候鸟》本体检出 1.24 版，补丁停留在 1.21，覆盖后存档列表会丢第 6 页，先备份再动手。</p>
+              <div class="meta"><span>补丁库</span><span>11-06</span></div>
+            </div>
+            <div class="card">
+              <span class="pill warn">手办</span>
+              <h3>GK 预售定价往 1200 元线挪</h3>
+              <p>11 月 8 日在售的 1/7 比例手工上色款 41 个条目里，全款过千的占 23 个，比 8 月底多 7 个。</p>
+              <div class="meta"><span>厂牌公开表</span><span>11-08</span></div>
+            </div>
+            <div class="card">
+              <span class="pill">展会</span>
+              <h3>霜月祭摊位 214 个</h3>
+              <p>11 月 15 日场次，同人本摊 118 个、周边 62 个、原创曲 34 个；首发限定本 17 种只现场卖。</p>
+              <div class="meta"><span>主办方公告</span><span>11-04</span></div>
+            </div>
+            <div class="card">
+              <span class="pill">声优</span>
+              <h3>秋季换角 3 例</h3>
+              <p>《铁轨七号》主角声优因档期在 11 月 2 日换人，第 5 集起重录，前 4 集沿用旧音轨。</p>
+              <div class="meta"><span>官方 X 账号</span><span>11-02</span></div>
+            </div>
+            <div class="card">
+              <span class="pill">周边</span>
+              <h3>亚克力立牌补货节奏</h3>
+              <p>热门角色立牌平均补货周期 23 天，10 月 12 日开售的一批在 11 月 4 日二次到货，二手溢价从 60% 回落到 15%。</p>
+              <div class="meta"><span>店铺页面</span><span>11-05</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 精选推荐 -->
+        <section class="sec" id="pick">
+          <div class="sec-head"><h2>精选内容推荐：本周值得花时间的 4 个条目</h2><a class="more" href="/#latest">全部更新 →</a></div>
+          <div class="grid2">
+            <article class="card">
+              <img class="thumb" src="https://picsum.photos/seed/xyzgn/560/240" width="560" height="240" loading="lazy" alt="夜航主题的深蓝插画局部">
+              <span class="pill">番剧 · 剧情</span>
+              <h3>《灰鸟夜航》第 3 集：把叙事诡计放前面</h3>
+              <p>第 1 集开场的 4 分钟已经是第 6 集的结局片段，重看率在弹幕站达 2.7 倍。适合愿意回头对时间线的人，不适合边刷手机边看。</p>
+              <div class="meta"><span>巴哈姆特动画疯</span><span>10-25 首播</span></div>
+            </article>
+            <article class="card">
+              <img class="thumb" src="https://picsum.photos/seed/xyzsnow/560/240" width="560" height="240" loading="lazy" alt="雪原与候鸟的冷色风景插画">
+              <span class="pill">galgame</span>
+              <h3>《雪原候鸟》全结局路线如何排</h3>
+              <p>共 6 条线，第 4 条「霜见线」需在第 2 周目才解锁。先走晴线再回头补霜见，能少刷 3 次共通章。</p>
+              <div class="meta"><span>补丁库</span><span>11-06</span></div>
+            </article>
+            <article class="card">
+              <img class="thumb" src="https://picsum.photos/seed/xyzfig/560/240" width="560" height="240" loading="lazy" alt="手办台座与灯光的工作台特写">
+              <span class="pill warn">手办</span>
+              <h3>1/7 比例预售该不该交定金</h3>
+              <p>定金 240 元占全款 24%，补款期 2027 年 5 月。二手现货近三个月有 4 次跌破全款 12%，急着摆柜就不必等。</p>
+              <div class="meta"><span>厂牌公开表</span><span>11-08</span></div>
+            </article>
+            <article class="card">
+              <img class="thumb" src="https://picsum.photos/seed/xyzdoujin/560/240" width="560" height="240" loading="lazy" alt="同人展摊位与纸本的俯拍">
+              <span class="pill">同人展</span>
+              <h3>霜月祭首发本 17 种，优先扫这 3 摊</h3>
+              <p>摊号 A-27、B-11、C-04 三家各带 2 种限定，现场价 45 到 70 元，11 月 15 日 10 点开摊，售完不补。</p>
+              <div class="meta"><span>主办方公告</span><span>11-04</span></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 最新更新 -->
+        <section class="sec" id="latest">
+          <div class="sec-head"><h2>最新更新：本周条目与版本记录</h2><span class="k">按发布时间倒序</span></div>
+          <ul class="list">
+            <li><time datetime="2026-11-08">11-08</time><a href="/#deep">《铁轨七号》第 6 集音轨替换完成，重录段落 3 分 12 秒</a><span class="sub">番剧</span></li>
+            <li><time datetime="2026-11-07">11-07</time><a href="/#guide">《雪原候鸟》补丁 1.21 存档兼容说明补一条注意事项</a><span class="sub">补丁库</span></li>
+            <li><time datetime="2026-11-07">11-07</time><a href="/#channel">秋季番剧留存曲线更新到第 5 周</a><span class="sub">数据</span></li>
+            <li><time datetime="2026-11-06">11-06</time><a href="/#pick">「霜见线」解锁条件在官方 FAQ 里改为第 2 周目</a><span class="sub">galgame</span></li>
+            <li><time datetime="2026-11-05">11-05</time><a href="/#overview">亚克力立牌二次到货，二手溢价从 60% 回落到 15%</a><span class="sub">周边</span></li>
+            <li><time datetime="2026-11-04">11-04</time><a href="/#faq">霜月祭摊位表发布，同人本摊 118 个</a><span class="sub">展会</span></li>
+            <li><time datetime="2026-11-02">11-02</time><a href="/#deep">《铁轨七号》主角声优更换，官方公告原文已存档</a><span class="sub">声优</span></li>
+          </ul>
+        </section>
+
+        <!-- 分类入口 -->
+        <section class="sec" id="channel">
+          <div class="sec-head"><h2>分类频道：从具体类别找条目</h2><span class="k">10 个频道</span></div>
+          <div class="chanGrid">
+            <a class="chan" href="/#pick">秋季新番表<small>37 部 · 含档期</small></a>
+            <a class="chan" href="/#deep">剧情向番剧解析<small>重看率与伏笔</small></a>
+            <a class="chan" href="/#guide">galgame 汉化补丁<small>19 个版本记录</small></a>
+            <a class="chan" href="/#faq">全结局路线攻略<small>6 条线条件</small></a>
+            <a class="chan" href="/#overview">手办预售情报<small>64 个条目</small></a>
+            <a class="chan" href="/#rank">GK 上色工坊榜单<small>按完成度排</small></a>
+            <a class="chan" href="/#comments">同人展摊位表<small>霜月祭 214 摊</small></a>
+            <a class="chan" href="/#tags">原创曲与广播剧<small>34 摊</small></a>
+            <a class="chan" href="/#timeline">声优与制作组动态<small>换角 3 例</small></a>
+            <a class="chan" href="/#guide">二次元设备清单<small>显示器与耳机</small></a>
+          </div>
+        </section>
+
+        <!-- 深度解析 -->
+        <section class="sec" id="deep">
+          <div class="sec-head"><h2>深度解析：秋季番剧「三集定律」在 2026 年已经不够用了</h2><span class="k">全页唯一主体阅读区</span></div>
+          <div class="article">
+            <p>2026 年秋季档有 37 部新番，其中 14 部在 10 月 3 日到 10 月 9 日之间开播。按老规矩，看到第 3 集再判断去留。但如果拿 10 月 3 日开播的《灰鸟夜航》《铁轨七号》《玻璃码表》三部的实际留存数据对一遍，三集定律的判断窗口已经慢了大致两周。</p>
+
+            <h3>案例时间线：三部番的实际弃留点</h3>
+            <ul class="timeline">
+              <li><time datetime="2026-10-03">10-03</time><b>《灰鸟夜航》第 1 集开播</b>22 分钟内完成一次伏笔回收，弹幕站在第 1 集结束时的「继续追看」标记率是 78%。</li>
+              <li><time datetime="2026-10-10">10-10</time><b>第 3 集播出</b>标记率升到 81%，但第 4 集起进入回忆篇，标记率掉到 64%，弃番高峰出现在第 4 集而非第 3 集。</li>
+              <li><time datetime="2026-10-12">10-12</time><b>《铁轨七号》第 3 集</b>主角声优更换公告发布，官方 X 账号在 11 月 2 日确认第 5 集起重录，前 4 集沿用旧音轨。</li>
+              <li><time datetime="2026-10-24">10-24</time><b>《玻璃码表》第 4 集</b>剧本把主线切成两条时间线，评论区出现「第 4 集看不懂」的集中反馈，但第 5 集回收后标记率回到 74%。</li>
+            </ul>
+            <div class="callout">可核对的判断：对伏笔密度高的作品，第 1 集和第 4 集是两个比第 3 集更有效的判断点。《灰鸟夜航》第 1 集的回收密度、《玻璃码表》第 4 集的分线处理，都能在单集内看出作者是否准备兑现。</div>
+
+            <h3>数据对比：三集定律与两周观察差在哪</h3>
+            <table class="cmp">
+              <caption>数据来源：弹幕站公开标记率与巴哈姆特动画疯集均评论数，统计截至 2026-11-07</caption>
+              <thead><tr><th>作品</th><th>第 1 集标记率</th><th>第 3 集标记率</th><th>第 4 集标记率</th><th>集均评论数</th></tr></thead>
+              <tbody>
+                <tr><td>灰鸟夜航</td><td>78%</td><td>81%</td><td>64%</td><td>1,240</td></tr>
+                <tr><td>铁轨七号</td><td>72%</td><td>75%</td><td>70%</td><td>860</td></tr>
+                <tr><td>玻璃码表</td><td>69%</td><td>66%</td><td>74%</td><td>1,510</td></tr>
+              </tbody>
+            </table>
+            <p>《玻璃码表》是反例：三集定律在第 3 集给出「该弃」的信号，第 4 集的结构调整又把标记率拉回 74%。而《灰鸟夜航》正好相反，第 3 集看起来稳，第 4 集进回忆篇就掉到 64%。两部的第 4 集波动幅度都超过 7 个百分点，大于第 3 集的波动。</p>
+
+            <h3>说法差异：观众口径与制作组口径</h3>
+            <p>观众在评论区常用的说法是「第 3 集定生死」，这条经验来自 2018 年到 2022 年一季 12 集、单集 24 分钟的排播习惯。制作组这边的口径不同：动画制作人小林在 10 月 26 日的直播里提到，企划阶段就把「第 1 集回收一个伏笔」写进分镜要求，因为流媒体平台的试看留存数据只看前 7 分钟。两边说的其实不是同一件事——观众在判断作品好不好，制作组在判断人会不会点第二集。</p>
+            <p>还有一个转述层面的差异：部分资讯号把「第 1 集回收伏笔」传成「第 1 集必须有大转折」，这是转述误差。回收伏笔不等于转折，前者是把已埋下的线索收掉，后者是改变故事走向。按 10 月 3 日到 11 月 7 日的 37 部作品统计，第 1 集有伏笔回收的 21 部里，真正出现转折的只有 6 部。</p>
+
+            <h3>规则前后变化：试看窗口从 3 集缩到 1 集</h3>
+            <p>巴哈姆特动画疯在 2026 年 9 月 18 日调整了免费试看策略，部分新番第 1 集免费、第 2 集起需会员。这条规则直接改变了弃留判断的时点：以前可以用 3 集免费窗口慢慢试，现在第 1 集就得决定是否付费。10 月 3 日开播的 14 部里有 9 部属于这个模式，它们的第 1 集标记率平均比 4 月档高出 6 个百分点，但第 4 集回落也更明显。</p>
+            <p>推测部分单列：如果试看窗口继续前移，三集定律可能会被「一集定律」替代，但一集能承载的信息量有限，对慢热型作品的误判率会上升。这个推论目前只有 3 部作品的数据支撑，样本不足，不宜当作结论。</p>
+
+            <h3>怎么用：把判断拆成三个可核对的动作</h3>
+            <ol class="steps">
+              <li><b>看完第 1 集，数伏笔回收次数</b><span>0 次可以再给一集机会，1 次以上基本可判断作者有兑现计划。</span></li>
+              <li><b>第 3 集看结构是否换挡</b><span>回忆篇、总集篇、换视角，三种换挡方式对应不同的掉分风险。</span></li>
+              <li><b>第 4 集确认标记率是否跌破 70%</b><span>跌破后仍然回升的作品比例，本季 37 部里只有 5 部。</span></li>
+            </ol>
+            <p>这套动作不保证判断正确，但它把「感觉不好看」拆成了次数、集数和百分比，方便回头对照。拿《铁轨七号》验一遍：第 1 集回收 1 次，第 3 集没换挡，第 4 集标记率 70%，三项都卡在临界值，属于可以留到第 6 集再决定的那类。</p>
+          </div>
+        </section>
+
+        <!-- 体验指南 -->
+        <section class="sec" id="guide">
+          <div class="sec-head"><h2>体验指南：补丁、设备、看片顺序的实操步骤</h2><span class="k">按条目分步</span></div>
+          <ol class="steps">
+            <li><b>先核对游戏本体版本号</b><span>《雪原候鸟》本体现在是 1.24，补丁库最新为 1.21。版本号在游戏主菜单右下角，补丁包解压后的 readme 里也写了一遍，两边对上再覆盖。</span></li>
+            <li><b>备份存档目录</b><span>默认路径 Documents/SnowBird/save，覆盖补丁前整目录复制一份。1.21 补丁会重排存档列表第 6 页，不备份会丢档。</span></li>
+            <li><b>按周目顺序走线</b><span>先晴线、再霜见线，霜见线需第 2 周目解锁，提前走会卡在共通章第 4 节。全结局 6 条，平均单线 6 小时。</span></li>
+            <li><b>显示器与耳机的最小配置</b><span>番剧以 1080p 24 帧为主，27 英寸 2K 屏足够；galgame 全屏文字多，建议 100% 缩放并用耳机，本作 BGM 有 12 首是双声道分离混音。</span></li>
+            <li><b>手办预售三步核对</b><span>一看厂牌公开表的补款月，二看定金比例是否超过 30%，三看二手近三个月是否跌破全款 12%。三步都过关再交定金。</span></li>
+          </ol>
+        </section>
+
+        <!-- FAQ -->
+        <section class="sec" id="faq">
+          <div class="sec-head"><h2>常见问答：番剧、补丁与手办的具体问题</h2><span class="k">4 问</span></div>
+          <details>
+            <summary>2026 年 10 月新番里哪部适合看第一集就判断弃留？</summary>
+            <div class="ans">《灰鸟夜航》第 1 集用 22 分钟完成一次伏笔回收，节奏密度高，看一集基本能判断是否对味，比按 PV 猜更靠谱。它的第 4 集进回忆篇会掉分，但那是后续取舍，不影响第一集的判断。</div>
+          </details>
+          <details>
+            <summary>galgame 汉化补丁装不上通常是什么原因？</summary>
+            <div class="ans">多为游戏本体版本与补丁日期不匹配。11 月 6 日补丁库记录的《雪原候鸟》案例：本体更新到 1.24，补丁基于 8 月的 1.21，覆盖后主菜单显示乱码。先核对版本号，再按 readme 里的覆盖顺序替换三个文件。</div>
+          </details>
+          <details>
+            <summary>手办预售定金和全款差多少值得等？</summary>
+            <div class="ans">定金通常为全款 20% 到 30%，热门厂牌补款期在 6 到 9 个月后。以 11 月 8 日在售的 1/7 比例款为例，全款 998 元、定金 240 元，补款 2027 年 5 月。若二手现货溢价低于 15%，直接买现货更省心，也省掉一次补款提醒。</div>
+          </details>
+          <details>
+            <summary>同人展会现场买本和事后通贩价格差多少？</summary>
+            <div class="ans">现场首发价通常比通贩低 10 元到 30 元，且附赠特典，但通贩可合并邮费。霜月祭的 17 种限定本现场价 45 到 70 元，通贩加邮费后单本反而贵 8 元左右；买三本以上时，运费被摊平，价差缩小到 5 元以内。</div>
+          </details>
+        </section>
+
+        <!-- 用户评论 -->
+        <section class="sec" id="comments">
+          <div class="sec-head"><h2>用户评论：对具体条目的说法</h2><span class="k">含中性意见</span></div>
+          <div class="comments">
+            <div class="cmt">
+              <div class="av" style="background:#7ee0d0">阿</div>
+              <div><div class="who">阿岚 <time datetime="2026-11-07">11-07</time></div>
+                <p>《灰鸟夜航》第 4 集回忆篇我直接跳了一半，第 5 集回收之后又倒回去看，体验有点割裂。第 1 集那 22 分钟确实是本季最紧凑的。</p></div>
+            </div>
+            <div class="cmt">
+              <div class="av" style="background:#f5a524">老</div>
+              <div><div class="who">老周不熬夜 <time datetime="2026-11-06">11-06</time></div>
+                <p>补丁 1.21 覆盖完，存档第 6 页真没了。readme 里那句「建议备份」写得像装饰，希望补丁库把版本匹配表放前面。</p></div>
+            </div>
+            <div class="cmt">
+              <div class="av" style="background:#9fb4e8">K</div>
+              <div><div class="who">K 表妹 <time datetime="2026-11-05">11-05</time></div>
+                <p>《玻璃码表》第 4 集分线我第一遍是真没看懂，第二遍才理顺。评论区说「看不懂就弃」的，可能少看了第 5 集最后三分钟。</p></div>
+            </div>
+            <div class="cmt">
+              <div class="av" style="background:#e8a0b8">西</div>
+              <div><div class="who">西瓜汽水 <time datetime="2026-11-04">11-04</time></div>
+                <p>1/7 那款定金 240 我交了，主要冲着台座。但补款期拖到 2027 年 5 月，期间要是出再版就尴尬，厂牌近两年出过 2 次再版。</p></div>
+            </div>
+            <div class="cmt">
+              <div class="av" style="background:#b8d48a">木</div>
+              <div><div class="who">木木不木 <time datetime="2026-11-03">11-03</time></div>
+                <p>霜月祭 A-27 摊的限定本去年排了 40 分钟，今年摊位表把它放在入口第二排，估计会更快卖完。10 点开摊建议 9 点 40 分到。</p></div>
+            </div>
+            <div class="cmt">
+              <div class="av" style="background:#8fb8c8">夜</div>
+              <div><div class="who">夜行列车 <time datetime="2026-11-02">11-02</time></div>
+                <p>《铁轨七号》换声优这事，官方 X 账号 11 月 2 日的公告写的是「档期调整」，没说具体原因。第 5 集重录后音色确实差一截，但台词节奏更稳。</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 相关资讯 -->
+        <section class="sec" id="news">
+          <div class="sec-head"><h2>相关资讯：档期、补货与公告</h2></div>
+          <div class="grid2">
+            <div class="card">
+              <h3>秋季第二波 9 部开播日落在 10 月 21 日之后</h3>
+              <p>其中 5 部第 1 集免费、第 2 集起会员，试看窗口比第一波更短。11 月 7 日的标记率统计显示，这 9 部的第 1 集平均标记率为 74%。</p>
+              <div class="meta"><span>巴哈姆特动画疯</span><span>11-07</span></div>
+            </div>
+            <div class="card">
+              <h3>亚克力立牌二次到货，溢价回落</h3>
+              <p>10 月 12 日开售的热门角色款 11 月 4 日二次到货，二手平台溢价从 60% 降到 15%，成交均价 118 元，接近官方定价 108 元。</p>
+              <div class="meta"><span>店铺页面</span><span>11-05</span></div>
+            </div>
+            <div class="card">
+              <h3>补丁库新增两条版本记录</h3>
+              <p>11 月 6 日记录《雪原候鸟》1.21 存档兼容问题，11 月 7 日补一条覆盖顺序说明。两条记录都附了原始 readme 截图文字。</p>
+              <div class="meta"><span>补丁库</span><span>11-07</span></div>
+            </div>
+            <div class="card">
+              <h3>霜月祭主办方追加场内指引</h3>
+              <p>11 月 4 日公告追加：A 区与 B 区之间设单向通道，同人本摊集中 A 区，周边与原创曲在 B 区和 C 区，限流时段为 13 点到 14 点。</p>
+              <div class="meta"><span>主办方公告</span><span>11-04</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 榜单 补充板块 -->
+        <section class="sec" id="rank">
+          <div class="sec-head"><h2>榜单：GK 上色工坊完成度排行</h2><span class="k">按 11-08 公开表</span></div>
+          <ol class="rank">
+            <li><a href="/#overview">霜见台座款 1/7 · 渐变处理 3 层</a><span class="v">评分 9.2</span></li>
+            <li><a href="/#overview">夜航制服款 1/7 · 布料褶皱还原</a><span class="v">评分 8.9</span></li>
+            <li><a href="/#overview">铁轨制服款 1/8 · 金属扣件独立件</a><span class="v">评分 8.7</span></li>
+            <li><a href="/#overview">玻璃码表主角款 1/7 · 表盘可拆</a><span class="v">评分 8.4</span></li>
+            <li><a href="/#overview">雪原候鸟晴线款 1/8 · 候鸟配件 2 件</a><span class="v">评分 8.1</span></li>
+            <li><a href="/#overview">霜见线冬装款 1/7 · 围巾可动</a><span class="v">评分 7.8</span></li>
+          </ol>
+        </section>
+
+        <!-- 相关推荐 标签 -->
+        <section class="sec" id="tags">
+          <div class="sec-head"><h2>相关推荐：按你常搜的词找</h2></div>
+          <div class="tags">
+            <a href="/#pick">秋季新番表 2026</a>
+            <a href="/#deep">番剧三集定律</a>
+            <a href="/#guide">galgame 汉化补丁</a>
+            <a href="/#faq">雪原候鸟全结局</a>
+            <a href="/#overview">1/7 手办定金</a>
+            <a href="/#rank">GK 上色完成度</a>
+            <a href="/#comments">霜月祭摊位表</a>
+            <a href="/#timeline">声优换角公告</a>
+            <a href="/#news">亚克力立牌补货</a>
+            <a href="/#guide">galgame 存档备份</a>
+          </div>
+        </section>
+
+        <!-- 时间线 补充板块 -->
+        <section class="sec" id="timeline">
+          <div class="sec-head"><h2>时间线：10 月以来的关键节点</h2></div>
+          <ul class="timeline">
+            <li><time datetime="2026-10-03">10-03</time><b>秋季第一波 14 部开播</b>《灰鸟夜航》《铁轨七号》《玻璃码表》同日上线。</li>
+            <li><time datetime="2026-10-12">10-12</time><b>亚克力立牌首批开售</b>热门角色 3 小时内售罄，二手溢价一度到 60%。</li>
+            <li><time datetime="2026-10-21">10-21</time><b>第二波 9 部开播</b>5 部采用第 1 集免费、第 2 集起会员的模式。</li>
+            <li><time datetime="2026-11-02">11-02</time><b>《铁轨七号》声优更换公告</b>官方 X 账号说明为档期调整，第 5 集起重录。</li>
+            <li><time datetime="2026-11-04">11-04</time><b>霜月祭摊位表发布</b>214 摊，同人本 118 摊，首发限定本 17 种。</li>
+            <li><time datetime="2026-11-06">11-06</time><b>《雪原候鸟》补丁 1.21 记录</b>存档兼容问题与覆盖顺序说明同时发布。</li>
+            <li><time datetime="2026-11-08">11-08</time><b>GK 上色工坊完成度排行更新</b>前 6 名中 4 款为 1/7 比例。</li>
+          </ul>
+        </section>
+
+      </div>
+
+      <aside aria-label="侧栏导航与提示">
+        <div class="side">
+          <h2>栏目导航</h2>
+          <nav id="sideNav" aria-label="本页栏目">
+            <a href="/#overview">领域概览</a>
+            <a href="/#pick">精选内容推荐</a>
+            <a href="/#latest">最新更新</a>
+            <a href="/#channel">分类频道</a>
+            <a href="/#deep">深度解析</a>
+            <a href="/#guide">体验指南</a>
+            <a href="/#faq">常见问答</a>
+            <a href="/#comments">用户评论</a>
+            <a href="/#news">相关资讯</a>
+            <a href="/#rank">完成度榜单</a>
+            <a href="/#tags">相关推荐</a>
+            <a href="/#timeline">关键时间线</a>
+          </nav>
+        </div>
+        <div class="side">
+          <h2>本周提醒</h2>
+          <p class="note">11 月 15 日霜月祭 10 点开摊，A-27 摊限定本建议 9 点 40 分到场。<br><br>《雪原候鸟》补丁覆盖前先备份 save 目录，1.21 会重排第 6 页。<br><br>1/7 比例款定金比例超过 30% 的条目，本季共 7 个，交定金前先看二手价。</p>
+        </div>
+        <div class="side">
+          <h2>数据说明</h2>
+          <p class="note">标记率取自弹幕站公开数据，集均评论数取自巴哈姆特动画疯页面；手办条目来自厂牌公开表，价格含税。示例条目仅用于展示结构。</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#202a48"/><path d="M18 22h28v16a8 8 0 0 1-8 8H26a8 8 0 0 1-8-8z" fill="none" stroke="#f5a524" stroke-width="4"/><circle cx="27" cy="31" r="3" fill="#7ee0d0"/><circle cx="37" cy="31" r="3" fill="#7ee0d0"/><path d="M26 38h12" stroke="#7ee0d0" stroke-width="3" stroke-linecap="round"/></svg>
+          <span>宅男福利 xyz</span>
+        </div>
+        <p class="fdesc">给二次元观众和玩家的条目索引：番剧档期、补丁版本、手办预售、同人展摊表，都标日期与来源。</p>
+      </div>
+      <div>
+        <h3>番剧与解析</h3>
+        <a href="/#pick">秋季新番表</a>
+        <a href="/#deep">三集定律解析</a>
+        <a href="/#timeline">声优动态</a>
+        <a href="/#news">档期资讯</a>
+      </div>
+      <div>
+        <h3>游戏与补丁</h3>
+        <a href="/#guide">补丁安装步骤</a>
+        <a href="/#faq">全结局路线</a>
+        <a href="/#latest">版本更新记录</a>
+        <a href="/#comments">玩家反馈</a>
+      </div>
+      <div>
+        <h3>手办与展会</h3>
+        <a href="/#overview">预售情报</a>
+        <a href="/#rank">完成度榜单</a>
+        <a href="/#comments">霜月祭摊表</a>
+        <a href="/#tags">相关推荐</a>
+      </div>
+    </div>
+    <div class="copy">
+      <span>示例数据说明：本页条目、价格、标记率与摊位数均为结构演示用的示例数据，不对应真实商品或活动。</span>
+      <span>页面可核对更新项：11-08 榜单更新、11-07 补丁兼容说明、11-04 摊位表 · 更新时间 2026-11-08</span>
+    </div>
+    <div class="copy">
+      <span>© 2026 宅男福利 xyz · 内容索引站</span>
+      <span>语言 zh-CN · 页面结构静态输出</span>
+    </div>
+  </div>
+</footer>
+
+<button id="toTop" type="button" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var menuBtn=document.getElementById('menuBtn');
+  var nav=document.getElementById('navmain');
+  if(menuBtn&&nav){
+    menuBtn.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    nav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'&&window.innerWidth<=960){
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var q=document.getElementById('q');
+  var qBtn=document.getElementById('qBtn');
+  var msg=document.getElementById('searchMsg');
+  function doSearch(){
+    var v=(q.value||'').trim();
+    if(!v){msg.textContent='请输入番剧名、补丁版本或手办款名。';return;}
+    var words=v.split(/\s+/);
+    var secs=document.querySelectorAll('main .sec');
+    var hit=[];
+    secs.forEach(function(s){
+      var t=s.textContent.toLowerCase();
+      var ok=words.every(function(w){return t.indexOf(w.toLowerCase())>-1;});
+      if(ok){hit.push(s.querySelector('h2')?s.querySelector('h2').textContent:'条目');}
+    });
+    if(hit.length){
+      msg.textContent='找到 '+hit.length+' 个相关栏目：'+hit.slice(0,4).join('、');
+      var first=document.querySelectorAll('main .sec');
+      for(var i=0;i<first.length;i++){
+        if(first[i].textContent.toLowerCase().indexOf(words[0].toLowerCase())>-1){
+          first[i].scrollIntoView({behavior:'smooth',block:'start'});break;
+        }
+      }
+    }else{
+      msg.textContent='没有匹配「'+v+'」的条目，试试「灰鸟夜航」「补丁」「霜月祭」等具体词。';
+    }
+  }
+  if(qBtn){qBtn.addEventListener('click',doSearch);}
+  if(q){q.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();doSearch();}});}
+
+  var top=document.getElementById('toTop');
+  var navLinks=document.querySelectorAll('#sideNav a');
+  var secs=Array.prototype.slice.call(document.querySelectorAll('main .sec'));
+  function onScroll(){
+    if(window.scrollY>400){top.classList.add('show');}else{top.classList.remove('show');}
+    var pos=window.scrollY+160, cur=null;
+    secs.forEach(function(s){if(s.offsetTop<=pos){cur=s.id;}});
+    navLinks.forEach(function(a){
+      a.classList.toggle('active',cur&&a.getAttribute('href')==='/# '+cur);
+      a.classList.toggle('active',cur&&a.getAttribute('href')==='#'+cur);
+      a.classList.toggle('active',cur&&a.getAttribute('href')==='/# '+cur);
+    });
+    navLinks.forEach(function(a){
+      var h=a.getAttribute('href')||'';
+      var id=h.indexOf('#')>-1?h.split('#')[1]:'';
+      a.classList.toggle('active',!!cur&&id===cur);
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+          </html>
